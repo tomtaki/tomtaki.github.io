@@ -1,0 +1,140 @@
+/*--- FONTS ---*/
+
+@font-face {
+    font-family: 'proxima_nova_rgbold';
+    src: url('fonts/proximanova_bold-webfont.eot');
+    src: url('fonts/proximanova_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/proximanova_bold-webfont.woff') format('woff'),
+         url('fonts/proximanova_bold-webfont.ttf') format('truetype'),
+         url('fonts/proximanova_bold-webfont.svg#proxima_nova_rgbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'proxima_novalight';
+    src: url('fonts/proximanova_light-webfont.eot');
+    src: url('fonts/proximanova_light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/proximanova_light-webfont.woff') format('woff'),
+         url('fonts/proximanova_light-webfont.ttf') format('truetype'),
+         url('fonts/proximanova_light-webfont.svg#proxima_novalight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'proxima_nova_rgregular';
+    src: url('fonts/proximanova_regular-webfont.eot');
+    src: url('fonts/proximanova_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/proximanova_regular-webfont.woff') format('woff'),
+         url('fonts/proximanova_regular-webfont.ttf') format('truetype'),
+         url('fonts/proximanova_regular-webfont.svg#proxima_nova_rgregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'proxima_novasemibold';
+    src: url('fonts/proximanova_semibold-webfont.eot');
+    src: url('fonts/proximanova_semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/proximanova_semibold-webfont.woff') format('woff'),
+         url('fonts/proximanova_semibold-webfont.ttf') format('truetype'),
+         url('fonts/proximanova_semibold-webfont.svg#proxima_novasemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+html {
+	min-height: 100%;
+	background-size: cover;
+	background-image: url(../img/bkgd_growningUp_seamlessWhite.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-color: #444;
+}
+
+body {
+	min-height: 100%;
+	font-family: 'proxima_novalight', Helvetica, sans-serif;
+}
+
+a:hover {
+	background-color: #FFFF2C;
+}
+
+.fatcopy {
+	font-size: 44px;
+	line-height: 1.2em;
+	color: #3d3029;
+	margin: 0px 0 30px 0px;
+}
+
+.fatcopy a{
+	text-decoration: underline;
+	color: #3d3029;
+}
+
+.fatcopy a:hover{
+	color: black;
+}
+
+.fatcopy--note {
+	font-size: 30px;
+}
+
+p a {
+	text-decoration: none;
+}
+/*---
+p a {
+	color: #6DDAE9;
+	text-decoration: underline;
+}
+--*/
+
+.logo {
+	margin: 30px 0px 15px 90px;
+}
+
+.copyblock {
+	margin: 0px 30px 240px 90px;
+	width: 540px;
+}
+
+.contactText {
+	width: 640px;
+	border-top: 1px solid #999;
+	padding-top: 20px;
+}
+
+.contactLinks a {
+	font-size: 18px;
+	float: left;
+	background-color: #6DDAE9;
+	color: #111;
+	text-decoration: none;
+	padding: 0px 4px 0px 4px;
+	margin-right: 8px;
+}
+
+.contactLinks a:hover {
+	background-color: #FFFF2C;
+}
+
+.subtext {
+	float: right;
+	font-size: 14px;
+	color: #AAA;
+	margin-top: 3px;
+}
+
+.subtext a {
+	color: #AAA;
+	text-decoration: underline;
+}
