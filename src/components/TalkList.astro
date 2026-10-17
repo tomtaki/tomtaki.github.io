@@ -1,0 +1,48 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDate } from '../lib';
+
+interface Props {
+  talks: CollectionEntry<'talks'>[];
+}
+
+const { talks } = Astro.props;
+---
+
+<ul class="talks">
+  {
+    talks.map(({ data }) => (
+      <li>
+        <span class="kind">{data.kind}</span>
+        <span class="title">{data.url ? <a href={data.url}>{data.title}</a> : data.title}</span>
+        <span class="meta">
+          {data.event} · {formatDate(data.date, 'year')}
+        </span>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .talks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    column-gap: 1rem;
+    padding-block: 0.75rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .kind {
+    grid-row: span 2;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    color: var(--muted);
+    padding-top: 0.2rem;
+  }
+</style>

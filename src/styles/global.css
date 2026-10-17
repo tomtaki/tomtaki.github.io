@@ -1,0 +1,105 @@
+/* Placeholder visual system: tokens first so the redesign is a token swap. */
+:root {
+  --bg: #fbfaf7;
+  --surface: #f2f0ea;
+  --text: #1d1c1a;
+  --muted: #6b6862;
+  --line: #e2dfd7;
+  --accent: #2f5bd3;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: ui-serif, Georgia, 'Times New Roman', serif;
+  --measure: 40rem;
+  --wide: 64rem;
+  --gutter: 1.25rem;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #151514;
+    --surface: #1f1f1d;
+    --text: #ecebe7;
+    --muted: #a29f97;
+    --line: #2f2e2b;
+    --accent: #8aa8ff;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 1.0625rem/1.6 var(--font-sans);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.wrap {
+  max-width: var(--wide);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.prose {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.prose :where(p, ul, ol, blockquote) {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+.section-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 1rem;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

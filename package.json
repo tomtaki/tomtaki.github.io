@@ -1,0 +1,25 @@
+{
+  "name": "tomtaki-com",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "start": "node ./dist/server/entry.mjs",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "8.0.2",
+    "@astrojs/node": "11.1.6",
+    "@astrojs/svelte": "9.0.1",
+    "astro": "7.3.5",
+    "svelte": "5.57.1"
+  },
+  "devDependencies": {
+    "typescript": "6.0.3"
+  }
+}

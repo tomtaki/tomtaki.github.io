@@ -1,0 +1,25 @@
+---
+title: Sample interactive essay
+date: 2026-10-16
+kind: essay
+summary: A test page for the essay kit — margin notes, figures and a live control.
+draft: true
+---
+
+import Aside from '../../components/kit/Aside.astro';
+import Figure from '../../components/kit/Figure.astro';
+import TeaTimer from '../../components/kit/TeaTimer.svelte';
+
+Essays are written in MDX: markdown, plus components dropped in where the argument
+needs the reader's hands on something.
+
+<Aside>Margin notes sit beside the text on wide screens and fall inline on phones.</Aside>
+
+Here's the smallest version of that idea. Drag the control and the sentence answers back.
+
+<Figure caption="Kit: Scrubber. A Svelte component, hydrated only when it scrolls into view.">
+  <TeaTimer client:visible />
+</Figure>
+
+Everything outside the figure is plain HTML, so the page stays fast. Only the parts
+marked `client:` ship JavaScript.

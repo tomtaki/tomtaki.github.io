@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import TalkList from '../components/TalkList.astro';
+import { getTalks } from '../lib';
+
+const talks = await getTalks();
+---
+
+<Base title="Talks & podcasts" description="Conference talks and podcast appearances by Tom Takigayama.">
+  <section class="wrap">
+    <h1>Talks &amp; podcasts</h1>
+    {talks.length > 0 ? <TalkList talks={talks} /> : <p class="meta">Coming soon.</p>}
+  </section>
+</Base>

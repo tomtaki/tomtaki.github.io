@@ -1,0 +1,17 @@
+# Conference talks and podcast appearances.
+# Add one entry per appearance; order doesn't matter, the site sorts by date.
+# The homepage shows the latest few and links to /talks once the list outgrows it.
+#
+# - id: unique-slug
+#   title: Talk or episode title
+#   event: Conference or podcast name
+#   kind: talk        # talk | podcast | panel | workshop
+#   date: 2026-05-14
+#   url: https://...  # optional: video, recording or episode page
+
+- id: example-talk
+  title: Example talk — replace me
+  event: Example Conference
+  kind: talk
+  date: 2026-01-01
+  draft: true

@@ -1,0 +1,14 @@
+---
+import Base from '../../layouts/Base.astro';
+import ThoughtCard from '../../components/ThoughtCard.astro';
+import { getThoughts } from '../../lib';
+
+const thoughts = await getThoughts();
+---
+
+<Base title="Thoughts" description="Writing, drawings and interactive essays by Tom Takigayama.">
+  <section class="wrap">
+    <h1>Thoughts</h1>
+    {thoughts.length > 0 ? thoughts.map((post) => <ThoughtCard post={post} />) : <p class="meta">Coming soon.</p>}
+  </section>
+</Base>

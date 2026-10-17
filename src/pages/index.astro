@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+import TalkList from '../components/TalkList.astro';
+import ThoughtCard from '../components/ThoughtCard.astro';
+import { getTalks, getThoughts } from '../lib';
+
+// Talks live on the homepage until the list outgrows it, then link to /talks.
+const HOME_TALK_LIMIT = 5;
+const HOME_THOUGHT_LIMIT = 3;
+
+const talks = await getTalks();
+const thoughts = await getThoughts();
+---
+
+<Base>
+  <section class="intro wrap">
+    <p>
+      Hello, I’m Tom — a Principal Experience Designer. Born in Queens, now in Brooklyn.
+    </p>
+    <p>
+      Currently at <a href="https://www.justworks.com">Justworks</a>.
+      Previously at <a href="https://www.etsy.com">Etsy</a>, Gilt, Ralph Lauren &amp; Publicis.
+    </p>
+    <p>Loves <a href="https://instagram.com/tomtaki">photography</a>.</p>
+  </section>
+
+  {
+    thoughts.length > 0 && (
+      <section class="wrap block" aria-labelledby="thoughts-heading">
+        <h2 id="thoughts-heading" class="section-title">Thoughts</h2>
+        {thoughts.slice(0, HOME_THOUGHT_LIMIT).map((post) => <ThoughtCard post={post} />)}
+        {thoughts.length > HOME_THOUGHT_LIMIT && <a href="/thoughts/">All thoughts →</a>}
+      </section>
+    )
+  }
+
+  {
+    talks.length > 0 && (
+      <section class="wrap block" aria-labelledby="talks-heading">
+        <h2 id="talks-heading" class="section-title">Talks &amp; podcasts</h2>
+        <TalkList talks={talks.slice(0, HOME_TALK_LIMIT)} />
+        {talks.length > HOME_TALK_LIMIT && (
+          <p>
+            <a href="/talks/">All {talks.length} talks &amp; podcasts →</a>
+          </p>
+        )}
+      </section>
+    )
+  }
+</Base>
+
+<style>
+  .intro {
+    padding-block: 3rem 2rem;
+  }
+
+  .intro p {
+    font-size: clamp(1.5rem, 1.1rem + 2vw, 2.4rem);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    max-width: 22em;
+    margin: 0 0 0.6em;
+  }
+
+  .block {
+    margin-top: 3.5rem;
+  }
+</style>

@@ -1,0 +1,56 @@
+---
+import { render } from 'astro:content';
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import { getThoughts, formatDate } from '../../lib';
+
+export async function getStaticPaths() {
+  const posts = await getThoughts();
+  return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { title, date, kind, summary, image, imageAlt } = post.data;
+const { Content } = await render(post);
+---
+
+<Base title={title} description={summary}>
+  <article class:list={['post', kind]}>
+    <header class="prose">
+      <h1>{title}</h1>
+      <p class="meta">{formatDate(date)}</p>
+    </header>
+    {
+      kind === 'note' && image && (
+        <figure class="note-figure wrap">
+          <Image src={image} alt={imageAlt ?? ''} width={1200} />
+        </figure>
+      )
+    }
+    <div class="prose body">
+      <Content />
+    </div>
+  </article>
+</Base>
+
+<style>
+  .post header {
+    padding-top: 2rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 1.4rem + 3vw, 3.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.5rem;
+  }
+
+  .note-figure {
+    margin-block: 2rem;
+  }
+
+  .note-figure :global(img) {
+    margin-inline: auto;
+    border-radius: 0.5rem;
+  }
+</style>

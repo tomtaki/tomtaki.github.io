@@ -1,0 +1,75 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import { formatDate } from '../lib';
+
+interface Props {
+  post: CollectionEntry<'thoughts'>;
+}
+
+const { post } = Astro.props;
+const { title, date, kind, summary, image, imageAlt, draft } = post.data;
+const href = `/thoughts/${post.id}/`;
+---
+
+<article class:list={['card', kind]}>
+  <a href={href} class="card-link">
+    {kind === 'note' && image && <Image src={image} alt={imageAlt ?? ''} width={640} />}
+    <h3>
+      {title}
+      {draft && <span class="draft">draft</span>}
+    </h3>
+    {kind !== 'note' && summary && <p>{summary}</p>}
+    <p class="meta">
+      {formatDate(date)}
+      {kind === 'live' && ' · interactive'}
+    </p>
+  </a>
+</article>
+
+<style>
+  .card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    padding: 1rem;
+    margin-inline: -1rem;
+    border-radius: 0.75rem;
+  }
+
+  .card-link:hover {
+    background: var(--surface);
+  }
+
+  .card-link:hover h3 {
+    color: var(--accent);
+  }
+
+  h3 {
+    margin: 0.5rem 0 0.25rem;
+    font-size: 1.2rem;
+    line-height: 1.3;
+  }
+
+  p {
+    margin: 0.25rem 0;
+  }
+
+  .note img {
+    border-radius: 0.5rem;
+    background: var(--surface);
+  }
+
+  .draft {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--bg);
+    background: var(--muted);
+    border-radius: 0.25rem;
+    padding: 0.1rem 0.35rem;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+  }
+</style>

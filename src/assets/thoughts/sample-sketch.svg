@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560">
+  <rect width="800" height="560" fill="#f2f0ea"/>
+  <g fill="none" stroke="#1d1c1a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="400" cy="230" r="110"/>
+    <path d="M350 205 q10 -14 20 0 M430 205 q10 -14 20 0"/>
+    <path d="M345 270 q55 45 110 0"/>
+    <path d="M400 340 v120 M400 380 l-80 -30 M400 380 l80 -30 M400 460 l-50 70 M400 460 l50 70"/>
+  </g>
+  <text x="400" y="80" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#6b6862">placeholder drawing</text>
+</svg>

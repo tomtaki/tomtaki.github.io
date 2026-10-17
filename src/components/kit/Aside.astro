@@ -1,0 +1,27 @@
+---
+// A margin note: sits beside the text on wide screens, inline on narrow ones.
+---
+
+<aside class="kit-aside"><slot /></aside>
+
+<style>
+  .kit-aside {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--muted);
+    border-left: 2px solid var(--line);
+    padding-left: 0.9rem;
+    margin-block: 1.25rem;
+  }
+
+  @media (min-width: 72rem) {
+    .kit-aside {
+      float: right;
+      clear: right;
+      width: 14rem;
+      margin-right: -17rem;
+      margin-top: 0.25rem;
+    }
+  }
+</style>

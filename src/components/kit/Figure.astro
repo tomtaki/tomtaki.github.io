@@ -1,0 +1,40 @@
+---
+// Wraps an interactive or static figure. `wide` lets it break out of the text column.
+interface Props {
+  caption?: string;
+  wide?: boolean;
+}
+
+const { caption, wide = false } = Astro.props;
+---
+
+<figure class:list={['kit-figure', { wide }]}>
+  <div class="stage"><slot /></div>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<style>
+  .kit-figure {
+    margin: 2rem 0;
+  }
+
+  .wide {
+    width: min(var(--wide), 100vw - 2 * var(--gutter));
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .stage {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+  }
+
+  figcaption {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 0.6rem;
+  }
+</style>

@@ -1,0 +1,90 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Tom Takigayama is a Principal Experience Designer in Brooklyn, writing and experimenting with interfaces.',
+} = Astro.props;
+const fullTitle = title ? `${title} — Tom Takigayama` : 'Tom Takigayama';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+  </head>
+  <body>
+    <header class="site-header wrap">
+      <a href="/" class="home-link" aria-label="Tom Takigayama, home">
+        <img src="/img/TomTaki_logo_grey.png" alt="" width="120" />
+      </a>
+      <nav aria-label="Main">
+        <a href="/thoughts/">Thoughts</a>
+        <a href="/talks/">Talks</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer wrap">
+      <a href="mailto:mail@tomtaki.com">Email</a>
+      <a href="https://www.linkedin.com/in/tomtaki">LinkedIn</a>
+      <a href="https://instagram.com/tomtaki">Instagram</a>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 1.5rem;
+  }
+
+  .home-link img {
+    width: 120px;
+  }
+
+  nav,
+  .site-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  nav a,
+  .site-footer a {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  nav a:hover,
+  .site-footer a:hover {
+    color: var(--accent);
+  }
+
+  main {
+    min-height: 60vh;
+  }
+
+  .site-footer {
+    border-top: 1px solid var(--line);
+    margin-top: 5rem;
+    padding-block: 2rem 3rem;
+    font-size: 0.95rem;
+  }
+</style>
