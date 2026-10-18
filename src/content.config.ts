@@ -25,17 +25,23 @@ const thoughts = defineCollection({
       }),
 });
 
-// Conference talks and podcast appearances, newest first on the site.
+// Conference talks, podcasts and livestreams, newest first on the site.
+// `date` may be left out only while an entry is a draft.
 const talks = defineCollection({
   loader: file('./src/data/talks.yaml'),
-  schema: z.object({
-    title: z.string(),
-    event: z.string(),
-    kind: z.enum(['talk', 'podcast', 'panel', 'workshop']),
-    date: z.coerce.date(),
-    url: z.string().url().optional(),
-    draft: z.boolean().default(false),
-  }),
+  schema: z
+    .object({
+      title: z.string(),
+      event: z.string(),
+      kind: z.enum(['talk', 'podcast', 'livestream', 'panel', 'workshop']),
+      // YAML reads a bare year (2024) as a number, which Date treats as milliseconds.
+      date: z.preprocess((v) => (typeof v === 'number' ? String(v) : v), z.coerce.date()).optional(),
+      with: z.string().optional(),
+      url: z.string().url().optional(),
+      links: z.array(z.object({ label: z.string(), url: z.string().url() })).default([]),
+      draft: z.boolean().default(false),
+    })
+    .refine((t) => t.draft || t.date, { message: 'A published talk needs a date' }),
 });
 
 export const collections = { thoughts, talks };

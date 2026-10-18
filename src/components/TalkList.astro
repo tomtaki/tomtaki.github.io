@@ -14,9 +14,22 @@ const { talks } = Astro.props;
     talks.map(({ data }) => (
       <li>
         <span class="kind">{data.kind}</span>
-        <span class="title">{data.url ? <a href={data.url}>{data.title}</a> : data.title}</span>
+        <span class="title">
+          {data.url ? <a href={data.url}>{data.title}</a> : data.title}
+          {data.draft && <span class="draft">draft</span>}
+        </span>
         <span class="meta">
-          {data.event} · {formatDate(data.date, 'year')}
+          {data.event}
+          {data.with && ` · with ${data.with}`}
+          {data.date ? ` · ${formatDate(data.date, 'year')}` : ' · date TBD'}
+          {
+            data.links.map((link) => (
+              <>
+                {' · '}
+                <a href={link.url}>{link.label}</a>
+              </>
+            ))
+          }
         </span>
       </li>
     ))
@@ -36,6 +49,22 @@ const { talks } = Astro.props;
     column-gap: 1rem;
     padding-block: 0.75rem;
     border-bottom: 1px solid var(--line);
+  }
+
+  .meta a {
+    color: inherit;
+  }
+
+  .draft {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--muted);
+    border-radius: 0.25rem;
+    padding: 0.1rem 0.35rem;
+    margin-left: 0.4rem;
+    vertical-align: middle;
   }
 
   .kind {

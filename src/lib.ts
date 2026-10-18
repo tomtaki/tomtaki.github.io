@@ -10,7 +10,8 @@ export async function getThoughts() {
 
 export async function getTalks() {
   const talks = await getCollection('talks', visible);
-  return talks.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  // Undated drafts sort last.
+  return talks.sort((a, b) => (b.data.date?.valueOf() ?? 0) - (a.data.date?.valueOf() ?? 0));
 }
 
 export function formatDate(date: Date, style: 'long' | 'year' = 'long') {

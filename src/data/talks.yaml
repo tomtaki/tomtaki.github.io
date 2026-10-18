@@ -1,17 +1,72 @@
-# Conference talks and podcast appearances.
-# Add one entry per appearance; order doesn't matter, the site sorts by date.
+# Conference talks, podcasts and livestreams.
+# Order doesn't matter; the site sorts by date, newest first.
 # The homepage shows the latest few and links to /talks once the list outgrows it.
 #
 # - id: unique-slug
 #   title: Talk or episode title
-#   event: Conference or podcast name
-#   kind: talk        # talk | podcast | panel | workshop
-#   date: 2026-05-14
-#   url: https://...  # optional: video, recording or episode page
+#   event: Conference, show or channel
+#   kind: talk          # talk | podcast | livestream | panel | workshop
+#   date: 2026-05       # year-month is enough; may be omitted only while draft
+#   with: Host name     # optional
+#   url: https://...    # optional main link
+#   links:              # optional extra links
+#     - { label: YouTube, url: https://... }
+#   draft: true         # hidden on the live site
 
-- id: example-talk
-  title: Example talk — replace me
-  event: Example Conference
+- id: catts-corner-what-comes-after-staff
+  title: What comes after staff?
+  event: Catt's Corner
+  kind: podcast
+  with: Catt Small
+  url: https://podcasts.apple.com/in/podcast/what-comes-after-staff-with-tom-takigayama/id6783632271?i=1000782779444
+  links:
+    - { label: YouTube, url: "https://www.youtube.com/watch?v=y2IOaJ0DFgU" }
+    - { label: RSS, url: "https://rss.com/podcasts/catts-corner/3029494/" }
+  draft: true # needs date
+
+- id: leading-design-london-2024
+  title: "Embracing the pendulum: navigating the fluid transition between manager and maker"
+  event: Leading Design London
   kind: talk
-  date: 2026-01-01
-  draft: true
+  date: 2024
+  url: https://ondemand.leadingdesign.com/videos/tom-takigayama-embracing-the-pendulum-navigating-the-fluid-transition-between-manager-and-maker
+
+- id: design-dept-real-talk
+  title: Real talk with real leaders
+  event: Design Dept
+  kind: livestream
+  with: Mia Blume
+  url: https://blog.designdept.co/real-talk-with-real-leaders-3f7c3e7bdfd
+  draft: true # needs date; confirm host spelling
+
+- id: linkedin-live-hang-xu
+  title: LinkedIn Live with Hang Xu
+  event: LinkedIn Live
+  kind: livestream
+  with: Hang Xu
+  url: https://lnkd.in/p/g-BVTNhJ
+  draft: true # needs date and title; prefer full LinkedIn URL
+
+- id: jam-dev-high-functioning-teams
+  title: How you can manage high-functioning teams
+  event: Jam.dev
+  kind: podcast
+  with: Irtefa
+  url: https://jam.dev/blog/tom-takigayam-director-of-product-design-at-justworks-on-how-you-can-manage-high-functioning-teams/
+  links:
+    - { label: Spotify, url: "https://open.spotify.com/episode/1vrTkU0sK1QvqPczze9cbX" }
+  draft: true # needs date; host's full name
+
+- id: design-driven-nyc
+  title: From IC to design manager
+  event: Design Driven NYC (FirstMark)
+  kind: talk
+  draft: true # needs date; working title, no recording exists
+
+- id: design-systems-nyc-2017
+  title: Design systems talk
+  event: Design Systems NYC
+  kind: talk
+  date: 2017-05
+  url: https://designsystems.nyc/2017-may/
+  draft: true # needs real talk title
