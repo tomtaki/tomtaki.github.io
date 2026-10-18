@@ -14,7 +14,7 @@ const href = `/thoughts/${post.id}/`;
 
 <article class:list={['card', kind]}>
   <a href={href} class="card-link">
-    {kind === 'note' && image && <Image src={image} alt={imageAlt ?? ''} width={640} />}
+    {kind === 'note' && image && <Image src={image} alt={imageAlt ?? ''} width={640} class="note-image" />}
     <h3>
       {title}
       {draft && <span class="draft">draft</span>}
@@ -32,13 +32,8 @@ const href = `/thoughts/${post.id}/`;
     display: block;
     color: inherit;
     text-decoration: none;
-    padding: 1rem;
-    margin-inline: -1rem;
-    border-radius: 0.75rem;
-  }
-
-  .card-link:hover {
-    background: var(--surface);
+    padding-block: 1.25rem;
+    border-bottom: 1px solid var(--line);
   }
 
   .card-link:hover h3 {
@@ -46,8 +41,10 @@ const href = `/thoughts/${post.id}/`;
   }
 
   h3 {
-    margin: 0.5rem 0 0.25rem;
-    font-size: 1.2rem;
+    font-family: var(--font-serif);
+    margin: 0 0 0.3rem;
+    font-size: 1.25rem;
+    font-weight: 500;
     line-height: 1.3;
   }
 
@@ -55,21 +52,8 @@ const href = `/thoughts/${post.id}/`;
     margin: 0.25rem 0;
   }
 
-  .note img {
-    border-radius: 0.5rem;
-    background: var(--surface);
-  }
-
-  .draft {
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--bg);
-    background: var(--muted);
+  .note-image {
     border-radius: 0.25rem;
-    padding: 0.1rem 0.35rem;
-    margin-left: 0.4rem;
-    vertical-align: middle;
+    margin-bottom: 1rem;
   }
 </style>

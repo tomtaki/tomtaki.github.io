@@ -13,12 +13,13 @@ const { talks } = Astro.props;
   {
     talks.map(({ data }) => (
       <li>
-        <span class="kind">{data.kind}</span>
         <span class="title">
           {data.url ? <a href={data.url}>{data.title}</a> : data.title}
           {data.draft && <span class="draft">draft</span>}
         </span>
         <span class="meta">
+          <span class="kind">{data.kind}</span>
+          {' · '}
           {data.event}
           {data.with && ` · with ${data.with}`}
           {data.date ? ` · ${formatDate(data.date, 'year')}` : ' · date TBD'}
@@ -44,34 +45,29 @@ const { talks } = Astro.props;
   }
 
   li {
-    display: grid;
-    grid-template-columns: 5.5rem 1fr;
-    column-gap: 1rem;
-    padding-block: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding-block: 1.25rem;
     border-bottom: 1px solid var(--line);
+  }
+
+  .title a {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+
+  .title a:hover {
+    color: var(--accent);
   }
 
   .meta a {
     color: inherit;
   }
 
-  .draft {
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--bg);
-    background: var(--muted);
-    border-radius: 0.25rem;
-    padding: 0.1rem 0.35rem;
-    margin-left: 0.4rem;
-    vertical-align: middle;
-  }
-
   .kind {
-    grid-row: span 2;
-    font-size: 0.8rem;
     text-transform: capitalize;
-    color: var(--muted);
-    padding-top: 0.2rem;
   }
 </style>

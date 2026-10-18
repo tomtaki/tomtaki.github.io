@@ -22,6 +22,12 @@ const fullTitle = title ? `${title} — Tom Takigayama` : 'Tom Takigayama';
     <meta name="description" content={description} />
     <link rel="icon" href="/favicon.ico" />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Work+Sans:wght@400;500;600&display=swap"
+    />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
   </head>
@@ -40,7 +46,9 @@ const fullTitle = title ? `${title} — Tom Takigayama` : 'Tom Takigayama';
     </main>
     <footer class="site-footer wrap">
       <a href="mailto:mail@tomtaki.com">Email</a>
+      <span aria-hidden="true">·</span>
       <a href="https://www.linkedin.com/in/tomtaki">LinkedIn</a>
+      <span aria-hidden="true">·</span>
       <a href="https://instagram.com/tomtaki">Instagram</a>
     </footer>
   </body>
@@ -59,21 +67,21 @@ const fullTitle = title ? `${title} — Tom Takigayama` : 'Tom Takigayama';
     width: 120px;
   }
 
-  nav,
-  .site-footer {
+  nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.25rem;
+    gap: 1.75rem;
   }
 
-  nav a,
-  .site-footer a {
-    color: var(--text);
+  nav a {
+    color: var(--muted);
     text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 
-  nav a:hover,
-  .site-footer a:hover {
+  nav a:hover {
     color: var(--accent);
   }
 
@@ -82,9 +90,23 @@ const fullTitle = title ? `${title} — Tom Takigayama` : 'Tom Takigayama';
   }
 
   .site-footer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
     border-top: 1px solid var(--line);
     margin-top: 5rem;
     padding-block: 2rem 3rem;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .site-footer a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  .site-footer a:hover {
+    color: var(--accent);
   }
 </style>

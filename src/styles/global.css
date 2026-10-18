@@ -1,27 +1,28 @@
-/* Placeholder visual system: tokens first so the redesign is a token swap. */
+/* "Editorial Quiet" visual system: a single narrow centered column, serif
+   titles over a sans body, and a warm neutral ground in both color schemes. */
 :root {
-  --bg: #fbfaf7;
-  --surface: #f2f0ea;
-  --text: #1d1c1a;
-  --muted: #6b6862;
-  --line: #e2dfd7;
-  --accent: #2f5bd3;
-  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-serif: ui-serif, Georgia, 'Times New Roman', serif;
-  --measure: 40rem;
-  --wide: 64rem;
+  --bg: #faf7f0;
+  --surface: #f1ece0;
+  --text: #211e19;
+  --muted: #726a5c;
+  --line: #e4ddcb;
+  --accent: #8a5a12;
+  --font-sans: 'Work Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Newsreader', ui-serif, Georgia, 'Times New Roman', serif;
+  --measure: 42rem;
+  --wide: 42rem;
   --gutter: 1.25rem;
   color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #151514;
-    --surface: #1f1f1d;
-    --text: #ecebe7;
-    --muted: #a29f97;
-    --line: #2f2e2b;
-    --accent: #8aa8ff;
+    --bg: #141311;
+    --surface: #1d1b17;
+    --text: #efeae2;
+    --muted: #9c948a;
+    --line: #2b2924;
+    --accent: #cba135;
   }
 }
 
@@ -80,18 +81,34 @@ a:hover {
   line-height: 1.7;
 }
 
+h1 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+}
+
 .section-title {
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
-  margin: 0 0 1rem;
+  margin: 0 0 1.5rem;
 }
 
 .meta {
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.draft {
+  font-size: 0.8em;
+  color: var(--accent);
+  margin-left: 0.4em;
+}
+
+.draft::before {
+  content: '● ';
+  font-size: 0.7em;
 }
 
 @media (prefers-reduced-motion: reduce) {
