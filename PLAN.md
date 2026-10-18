@@ -22,38 +22,39 @@ Last updated: 2026-10-18.
 | One `thoughts` collection with `kind: note / essay / live` | One listing, one URL scheme, per-kind templates |
 | Drafts in Obsidian (HQ), published copy in the repo | Publishing is a deliberate act; half-finished thinking stays private |
 | Scrollytelling yes, scroll hijacking no | Hijacking breaks trackpads, mobile and accessibility |
-| Placeholder visual design (system fonts, neutral tokens) | Structure first; the redesign is mostly a token swap in `src/styles/global.css` |
+| "Editorial Quiet" visual direction: Newsreader serif over Work Sans, one narrow centered column, warm neutral ground with a gold/amber accent | Chosen over two other rough directions (a personal "Studio Notebook" and a professional "Systems Grid") reviewed as a canvas artifact |
 | Dropped Proxima Nova files and old GA tag | Licensing risk; Universal Analytics is dead |
 
 ## Where things stand
 - **Live:** https://www.tomtaki.com on Railway from `master`. HTTPS via Let's Encrypt. GitHub Pages unpublished.
+  Talks data and the Editorial Quiet redesign are merged and deployed.
 - **DNS (Namecheap):** ALIAS `@` → Railway, CNAME `www` → Railway, two `_railway-verify` TXT records. MX/email records untouched.
-- **Branch `talks-list` (not merged):** talks schema extended (livestream kind, `with`, extra `links`, optional date for drafts, bare-year fix) + 7 entries in `src/data/talks.yaml`. Only Leading Design London 2024 is publishable; the rest are drafts awaiting info below.
+- **Talks:** all 7 entries in `src/data/talks.yaml` are published (dates, titles and links filled in,
+  several pulled straight from source pages — the LinkedIn post, designsystems.nyc's linked Speaker
+  Deck, and the Jam.dev host's name).
+- **Visual design:** homepage, header/footer, Thoughts and Talks listings all use the Editorial
+  Quiet tokens (`src/styles/global.css`). The essay template/kit has not been restyled yet.
 - **Thoughts:** two draft samples (`sample-note.md`, `sample-essay.mdx`) prove the pipeline. No real posts yet.
-- **Essay kit:** `Aside`, `Figure`, `Scrubber` (+ `TeaTimer` example) in `src/components/kit/`.
+- **Essay kit:** `Aside`, `Figure`, `Scrubber` (+ `TeaTimer` example) in `src/components/kit/` — still
+  on the old tokens' CSS vars, so they inherit the new colors/fonts automatically, but haven't been
+  reviewed against the new direction.
 
 ## Open items
-### Talks data (blocking the merge)
-All entries now have dates. LinkedIn Live's real title and full URL, and Design Systems NYC's
-real title ("I Have No Idea What I'm Doing"), were pulled from the source pages themselves
-(the LinkedIn post, designsystems.nyc, and its linked Speaker Deck). One item left:
-| Entry | Needs |
-|---|---|
-| Jam.dev — "How you can manage high-functioning teams" | host Irtefa's last name — not found on the Jam.dev post, Spotify page or web search |
-
 Decided: add a separate **"Mentioned in"** line/section (not part of `talks.yaml`) for press/book
 mentions — Tom is mentioned in Catt Small's book *The Staff Designer*, published December 2025.
-Not yet built; needs its own schema + UI, likely during the design pass.
+Not yet built; needs its own schema + UI.
 
 ### Decisions still open
-- Visual direction for the redesign (type, color, layout, how personal vs. professional).
 - Pilot essay topic — its first interaction should define what the kit needs next.
 - Whether to add a `featured` flag to pin a talk on the homepage regardless of date.
+- Whether the essay kit (`Aside`, `Figure`, `Scrubber`) needs direct restyling for Editorial Quiet
+  beyond inheriting the token swap.
 
 ## Roadmap
-1. **Finish talks data → merge `talks-list`.**
+1. ~~Finish talks data → merge `talks-list`.~~ **Done** — merged and live.
 2. **First real `note`** (a drawing + caption) — tests the publishing workflow end to end.
-3. **Visual design pass** — tokens, type, homepage layout, thoughts/talks listings, essay template.
+3. **Visual design pass** — ~~tokens, type, homepage layout, thoughts/talks listings~~ done;
+   essay template still open.
 4. **Pilot essay** + grow the kit only as it demands (sticky scrollytelling container is the likely next part).
 5. **First live component** — only when an essay needs it. Build the endpoint pattern once:
    key server-side, per-visitor rate limit, spend cap, static fallback.
@@ -75,7 +76,6 @@ Not yet built; needs its own schema + UI, likely during the design pass.
 ```sh
 git clone https://github.com/tomtaki/tomtaki.github.io
 cd tomtaki.github.io
-git checkout talks-list   # until it's merged
 npm install               # needs Node >= 22.22
 npm run dev               # http://localhost:4321, drafts visible
 ```

@@ -52,11 +52,10 @@
   event: Jam.dev
   kind: podcast
   date: 2022-10-18
-  with: Irtefa
+  with: Mohd Irtefa
   url: https://jam.dev/blog/tom-takigayam-director-of-product-design-at-justworks-on-how-you-can-manage-high-functioning-teams/
   links:
     - { label: Spotify, url: "https://open.spotify.com/episode/1vrTkU0sK1QvqPczze9cbX" }
-  draft: true # needs host's full last name
 
 - id: design-driven-nyc
   title: From IC to design manager
