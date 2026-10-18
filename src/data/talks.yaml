@@ -40,13 +40,12 @@
   url: https://blog.designdept.co/real-talk-with-real-leaders-3f7c3e7bdfd
 
 - id: linkedin-live-hang-xu
-  title: LinkedIn Live with Hang Xu
+  title: "Tom Takigayama, Principal Designer, chats about super senior IC vs manager"
   event: LinkedIn Live
   kind: livestream
   date: 2025-01-17
   with: Hang Xu
-  url: https://lnkd.in/p/g-BVTNhJ
-  draft: true # needs real title; prefer full LinkedIn URL over lnkd.in short link
+  url: https://www.linkedin.com/posts/tomtaki_hang-xu-has-been-doing-a-marathon-of-interviews-ugcPost-7286077205724495872-rN_T/
 
 - id: jam-dev-high-functioning-teams
   title: How you can manage high-functioning teams
@@ -67,11 +66,11 @@
   # working title; no recording exists
 
 - id: design-systems-nyc-2017
-  title: Design systems talk
+  title: "I Have No Idea What I'm Doing"
   event: Design Systems NYC
   kind: talk
   date: 2017-05-11
   url: https://designsystems.nyc/2017-may/
   links:
+    - { label: Slides, url: "https://speakerdeck.com/tomtaki/i-have-no-idea-what-im-doing" }
     - { label: YouTube, url: "https://youtu.be/b_lH4YLIgpE?si=lxptwO-dzlmESkxp" }
-  draft: true # needs real talk title

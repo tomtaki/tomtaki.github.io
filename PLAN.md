@@ -34,12 +34,12 @@ Last updated: 2026-10-18.
 
 ## Open items
 ### Talks data (blocking the merge)
-All entries now have dates. Open items left:
+All entries now have dates. LinkedIn Live's real title and full URL, and Design Systems NYC's
+real title ("I Have No Idea What I'm Doing"), were pulled from the source pages themselves
+(the LinkedIn post, designsystems.nyc, and its linked Speaker Deck). One item left:
 | Entry | Needs |
 |---|---|
-| LinkedIn Live with Hang Xu | real title; full LinkedIn URL (not lnkd.in) |
-| Jam.dev — "How you can manage high-functioning teams" | host Irtefa's last name |
-| Design Systems NYC, May 2017 | real talk title (currently just "Design systems talk") |
+| Jam.dev — "How you can manage high-functioning teams" | host Irtefa's last name — not found on the Jam.dev post, Spotify page or web search |
 
 Decided: add a separate **"Mentioned in"** line/section (not part of `talks.yaml`) for press/book
 mentions — Tom is mentioned in Catt Small's book *The Staff Designer*, published December 2025.
