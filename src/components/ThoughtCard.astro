@@ -5,16 +5,17 @@ import { formatDate } from '../lib';
 
 interface Props {
   post: CollectionEntry<'thoughts'>;
+  compact?: boolean;
 }
 
-const { post } = Astro.props;
+const { post, compact = false } = Astro.props;
 const { title, date, kind, summary, image, imageAlt, draft } = post.data;
 const href = `/thoughts/${post.id}/`;
 ---
 
 <article class:list={['card', kind]}>
   <a href={href} class="card-link">
-    {kind === 'note' && image && <Image src={image} alt={imageAlt ?? ''} width={640} class="note-image" />}
+    {!compact && kind === 'note' && image && <Image src={image} alt={imageAlt ?? ''} width={640} class="note-image" />}
     <h3>
       {title}
       {draft && <span class="draft">draft</span>}

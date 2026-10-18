@@ -16,7 +16,8 @@ const thoughts = await getThoughts();
   <section class="hero">
     <div class="intro wrap">
       <p>
-        Hello, I’m Tom — a Principal Experience Designer.
+        Hello, I’m Tom<br />
+        A Principal Experience Designer
       </p>
       <p>
         Currently at <a href="https://www.justworks.com">Justworks</a>.
@@ -30,7 +31,7 @@ const thoughts = await getThoughts();
     thoughts.length > 0 && (
       <section class="wrap block first-block" aria-labelledby="thoughts-heading">
         <h2 id="thoughts-heading" class="section-title">Thoughts</h2>
-        {thoughts.slice(0, HOME_THOUGHT_LIMIT).map((post) => <ThoughtCard post={post} />)}
+        {thoughts.slice(0, HOME_THOUGHT_LIMIT).map((post) => <ThoughtCard post={post} compact />)}
         {thoughts.length > HOME_THOUGHT_LIMIT && <a href="/thoughts/">All thoughts →</a>}
       </section>
     )
