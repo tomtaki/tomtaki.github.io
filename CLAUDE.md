@@ -7,7 +7,7 @@ server when it sets `export const prerender = false` (see `src/pages/api/`).
 ## Commands
 - `npm run dev` — local dev server; drafts are visible here
 - `npm run build` — production build; drafts are excluded
-- `npm start` — run the built server (Railway runs this; respects `PORT`)
+- `npm start` — run the built server via `server.mjs` (Railway runs this; respects `PORT`)
 
 ## Content
 - `src/content/thoughts/` — every post. Frontmatter `kind` is `note` (image + caption),
@@ -29,5 +29,10 @@ the kit over one-off components. Interactive Svelte parts need a `client:` direc
   backend is gone.
 
 ## Hosting
-The old GitHub Pages site is still served from `master`. Do not merge this rebuild
-into `master` until the Railway deploy is live and the Namecheap DNS points to it.
+- Railway deploys `master` automatically on every push; that is production.
+  Work on a branch and merge when it's ready to go live.
+- Domains: `www.tomtaki.com` is canonical. `server.mjs` 301-redirects the bare
+  `tomtaki.com` to www before Astro handles the request.
+- DNS is at Namecheap (ALIAS on `@`, CNAME on `www`, plus `_railway-verify` TXT
+  records). Leave MX and email TXT records alone.
+- GitHub Pages is unpublished; the repo name is historical.
