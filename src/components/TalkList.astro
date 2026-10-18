@@ -13,13 +13,12 @@ const { talks } = Astro.props;
   {
     talks.map(({ data }) => (
       <li>
+        <span class="kind">{data.kind}</span>
         <span class="title">
           {data.url ? <a href={data.url}>{data.title}</a> : data.title}
           {data.draft && <span class="draft">draft</span>}
         </span>
         <span class="meta">
-          <span class="kind">{data.kind}</span>
-          {' · '}
           {data.event}
           {data.with && ` · with ${data.with}`}
           {data.date ? ` · ${formatDate(data.date, 'year')}` : ' · date TBD'}
@@ -67,6 +66,10 @@ const { talks } = Astro.props;
   }
 
   .kind {
-    text-transform: capitalize;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
   }
 </style>
