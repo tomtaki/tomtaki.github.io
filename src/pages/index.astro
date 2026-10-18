@@ -13,20 +13,22 @@ const thoughts = await getThoughts();
 ---
 
 <Base>
-  <section class="intro wrap">
-    <p>
-      Hello, I’m Tom — a Principal Experience Designer.
-    </p>
-    <p>
-      Currently at <a href="https://www.justworks.com">Justworks</a>.
-      Previously at <a href="https://www.etsy.com">Etsy</a>, Gilt, Ralph Lauren &amp; Publicis.
-      Loves <a href="https://instagram.com/tomtaki">photography</a>.
-    </p>
+  <section class="hero">
+    <div class="intro wrap">
+      <p>
+        Hello, I’m Tom — a Principal Experience Designer.
+      </p>
+      <p>
+        Currently at <a href="https://www.justworks.com">Justworks</a>.
+        Previously at <a href="https://www.etsy.com">Etsy</a>, Gilt, Ralph Lauren &amp; Publicis.
+        Loves <a href="https://instagram.com/tomtaki">photography</a>.
+      </p>
+    </div>
   </section>
 
   {
     thoughts.length > 0 && (
-      <section class="wrap block" aria-labelledby="thoughts-heading">
+      <section class="wrap block first-block" aria-labelledby="thoughts-heading">
         <h2 id="thoughts-heading" class="section-title">Thoughts</h2>
         {thoughts.slice(0, HOME_THOUGHT_LIMIT).map((post) => <ThoughtCard post={post} />)}
         {thoughts.length > HOME_THOUGHT_LIMIT && <a href="/thoughts/">All thoughts →</a>}
@@ -50,8 +52,41 @@ const thoughts = await getThoughts();
 </Base>
 
 <style>
+  .hero {
+    position: relative;
+    /* Pull up behind the (transparent) header so the photo runs to the very
+       top of the page — no solid-color band above it. */
+    margin-top: -4.75rem;
+    height: 82vh;
+    min-height: 28rem;
+    /* Anchored low (not all the way to the bottom) so `cover` still crops
+       mostly from the top, but leaves enough empty space above the
+       keepsakes for the text to sit in without crossing them. */
+    background: url('/img/bkgd-flatlay.jpg') no-repeat center 15% / cover;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .hero {
+      background-image: url('/img/bkgd-flatlay-dark.jpg');
+    }
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 22%;
+    background: linear-gradient(to bottom, transparent, var(--bg));
+    pointer-events: none;
+  }
+
   .intro {
-    padding-block: 3.5rem 2.5rem;
+    position: relative;
+    z-index: 1;
+    padding-top: clamp(6.5rem, 5.5rem + 4vw, 8rem);
+    padding-bottom: 2.5rem;
   }
 
   .intro p:first-of-type {
@@ -72,5 +107,11 @@ const thoughts = await getThoughts();
 
   .block {
     margin-top: 3.5rem;
+  }
+
+  .first-block {
+    position: relative;
+    z-index: 1;
+    margin-top: -1.5rem;
   }
 </style>
