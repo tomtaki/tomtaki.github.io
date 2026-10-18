@@ -34,17 +34,16 @@ Last updated: 2026-10-18.
 
 ## Open items
 ### Talks data (blocking the merge)
+All entries now have dates. Open items left:
 | Entry | Needs |
 |---|---|
-| Catt's Corner — "What comes after staff?" | date |
-| Design Dept — "Real talk with real leaders" | date; confirm host spelling (Mia Blume vs. Bloom) |
-| LinkedIn Live with Hang Xu | date, real title, full LinkedIn URL (not lnkd.in) |
-| Jam.dev — "How you can manage high-functioning teams" | date; host Irtefa's last name |
-| Design Driven NYC (FirstMark) | date; real title (no recording exists) |
-| Design Systems NYC, May 2017 | real talk title |
+| LinkedIn Live with Hang Xu | real title; full LinkedIn URL (not lnkd.in) |
+| Jam.dev — "How you can manage high-functioning teams" | host Irtefa's last name |
+| Design Systems NYC, May 2017 | real talk title (currently just "Design systems talk") |
 
-Also: confirm "Catt Small" spelling. Decide whether to add a separate **"Mentioned in"** line
-(Tom is mentioned in Catt Small's book *The Staff Designer*) — recommendation: yes, separate from talks.
+Decided: add a separate **"Mentioned in"** line/section (not part of `talks.yaml`) for press/book
+mentions — Tom is mentioned in Catt Small's book *The Staff Designer*, published December 2025.
+Not yet built; needs its own schema + UI, likely during the design pass.
 
 ### Decisions still open
 - Visual direction for the redesign (type, color, layout, how personal vs. professional).

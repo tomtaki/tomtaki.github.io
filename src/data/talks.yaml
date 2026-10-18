@@ -17,12 +17,12 @@
   title: What comes after staff?
   event: Catt's Corner
   kind: podcast
+  date: 2026-08-11
   with: Catt Small
   url: https://podcasts.apple.com/in/podcast/what-comes-after-staff-with-tom-takigayama/id6783632271?i=1000782779444
   links:
     - { label: YouTube, url: "https://www.youtube.com/watch?v=y2IOaJ0DFgU" }
     - { label: RSS, url: "https://rss.com/podcasts/catts-corner/3029494/" }
-  draft: true # needs date
 
 - id: leading-design-london-2024
   title: "Embracing the pendulum: navigating the fluid transition between manager and maker"
@@ -35,38 +35,43 @@
   title: Real talk with real leaders
   event: Design Dept
   kind: livestream
-  with: Mia Blume
+  date: 2022
+  with: Mia Bloom
   url: https://blog.designdept.co/real-talk-with-real-leaders-3f7c3e7bdfd
-  draft: true # needs date; confirm host spelling
 
 - id: linkedin-live-hang-xu
   title: LinkedIn Live with Hang Xu
   event: LinkedIn Live
   kind: livestream
+  date: 2025-01-17
   with: Hang Xu
   url: https://lnkd.in/p/g-BVTNhJ
-  draft: true # needs date and title; prefer full LinkedIn URL
+  draft: true # needs real title; prefer full LinkedIn URL over lnkd.in short link
 
 - id: jam-dev-high-functioning-teams
   title: How you can manage high-functioning teams
   event: Jam.dev
   kind: podcast
+  date: 2022-10-18
   with: Irtefa
   url: https://jam.dev/blog/tom-takigayam-director-of-product-design-at-justworks-on-how-you-can-manage-high-functioning-teams/
   links:
     - { label: Spotify, url: "https://open.spotify.com/episode/1vrTkU0sK1QvqPczze9cbX" }
-  draft: true # needs date; host's full name
+  draft: true # needs host's full last name
 
 - id: design-driven-nyc
   title: From IC to design manager
   event: Design Driven NYC (FirstMark)
   kind: talk
-  draft: true # needs date; working title, no recording exists
+  date: 2019
+  # working title; no recording exists
 
 - id: design-systems-nyc-2017
   title: Design systems talk
   event: Design Systems NYC
   kind: talk
-  date: 2017-05
+  date: 2017-05-11
   url: https://designsystems.nyc/2017-may/
+  links:
+    - { label: YouTube, url: "https://youtu.be/b_lH4YLIgpE?si=lxptwO-dzlmESkxp" }
   draft: true # needs real talk title
