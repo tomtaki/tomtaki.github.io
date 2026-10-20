@@ -9,6 +9,14 @@ server when it sets `export const prerender = false` (see `src/pages/api/`).
 - `npm run build` — production build; drafts are excluded
 - `npm start` — run the built server via `server.mjs` (Railway runs this; respects `PORT`)
 
+## Syncing between machines
+Tom works on this repo from a local clone on his Mac mini and from cloud sessions
+(work laptop); GitHub is the only link between them.
+- At the start of a session: `git fetch` and pull the branch you're on before editing.
+- At the end of a session, or before stopping at any point: commit and push, even
+  unfinished work (on a branch, never `master`). Unpushed work is invisible to the
+  other machine, and cloud sessions are wiped when idle.
+
 ## Content
 - `src/content/thoughts/` — every post. Frontmatter `kind` is `note` (image + caption),
   `essay` (MDX, may use kit components) or `live` (essay with a server-backed component).
@@ -16,6 +24,8 @@ server when it sets `export const prerender = false` (see `src/pages/api/`).
 - `src/data/talks.yaml` — talks and podcasts. Homepage shows the latest few
   (`HOME_TALK_LIMIT` in `src/pages/index.astro`) and links to `/talks` beyond that.
 - Schemas live in `src/content.config.ts`.
+- Social previews: `Base.astro` sets Open Graph / Twitter tags. The default image is
+  `public/og.jpg` (1200×630); pages can pass their own `image` and `imageAlt`.
 
 ## Essay kit
 Reusable parts for interactive essays live in `src/components/kit/`. Prefer extending
